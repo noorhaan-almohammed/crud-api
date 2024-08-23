@@ -14,4 +14,8 @@ class Book extends Model
         'auther',
         'description'
     ];
+    public function scopeByAuther($query,$auther){
+        return $query->where('auther',$auther);
+    }
+
 }

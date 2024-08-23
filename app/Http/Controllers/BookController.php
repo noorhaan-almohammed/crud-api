@@ -11,9 +11,10 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::all();
+        $auther = $request->query('auther');
+        $books = Book::byAuther($auther)->get();
         return response()->json($books , 200);
     }
 
